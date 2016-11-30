@@ -44,6 +44,9 @@
 	<property name="src.dir" value="src" />
 	<property name="lib.dir" value="WebContent/WEB-INF/lib" />
 	<property name="web.dir" value="." />
+	<!-- Stub properits -->
+	<property name="stub.src.dir" value="src/introsde/assignment/soap/webservice" />
+	<property name="stub.bin.dir" value="build/introsde/assignment/soap/webservice" />
 
 	<!-- target resolve downloads the dependencies to your lib folder -->
 	<target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">

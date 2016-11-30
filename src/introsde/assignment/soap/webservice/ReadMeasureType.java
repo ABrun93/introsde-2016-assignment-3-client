@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per updatePersonResponse complex type.
+ * <p>Classe Java per readMeasureType complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="updatePersonResponse">
+ * &lt;complexType name="readMeasureType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="person" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="measureId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,27 +26,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "updatePersonResponse", propOrder = {
-    "person"
+@XmlType(name = "readMeasureType", propOrder = {
+    "measureId"
 })
-public class UpdatePersonResponse {
+public class ReadMeasureType {
 
-    protected int person;
+    protected int measureId;
 
     /**
-     * Recupera il valore della proprietà person.
+     * Recupera il valore della proprietà measureId.
      * 
      */
-    public int getPerson() {
-        return person;
+    public int getMeasureId() {
+        return measureId;
     }
 
     /**
-     * Imposta il valore della proprietà person.
+     * Imposta il valore della proprietà measureId.
      * 
      */
-    public void setPerson(int value) {
-        this.person = value;
+    public void setMeasureId(int value) {
+        this.measureId = value;
     }
 
 }

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="person" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +27,26 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "createPersonResponse", propOrder = {
-    "personId"
+    "person"
 })
 public class CreatePersonResponse {
 
-    protected int personId;
+    protected int person;
 
     /**
-     * Recupera il valore della proprietà personId.
+     * Recupera il valore della proprietà person.
      * 
      */
-    public int getPersonId() {
-        return personId;
+    public int getPerson() {
+        return person;
     }
 
     /**
-     * Imposta il valore della proprietà personId.
+     * Imposta il valore della proprietà person.
      * 
      */
-    public void setPersonId(int value) {
-        this.personId = value;
+    public void setPerson(int value) {
+        this.person = value;
     }
 
 }

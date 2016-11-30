@@ -60,7 +60,7 @@ public interface People {
      *     returns int
      */
     @WebMethod
-    @WebResult(name = "personId", targetNamespace = "")
+    @WebResult(name = "person", targetNamespace = "")
     @RequestWrapper(localName = "createPerson", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.CreatePerson")
     @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.CreatePersonResponse")
     @Action(input = "http://webservice.soap.assignment.introsde/People/createPersonRequest", output = "http://webservice.soap.assignment.introsde/People/createPersonResponse")
@@ -75,7 +75,7 @@ public interface People {
      *     returns int
      */
     @WebMethod
-    @WebResult(name = "personId", targetNamespace = "")
+    @WebResult(name = "person", targetNamespace = "")
     @RequestWrapper(localName = "updatePerson", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.UpdatePerson")
     @ResponseWrapper(localName = "updatePersonResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.UpdatePersonResponse")
     @Action(input = "http://webservice.soap.assignment.introsde/People/updatePersonRequest", output = "http://webservice.soap.assignment.introsde/People/updatePersonResponse")
@@ -94,5 +94,119 @@ public interface People {
     public void deletePerson(
         @WebParam(name = "personId", targetNamespace = "", mode = WebParam.Mode.INOUT)
         Holder<Integer> personId);
+
+    /**
+     * 
+     * @param measureId
+     * @param personId
+     * @param measureTypeId
+     * @return
+     *     returns introsde.assignment.soap.webservice.Measure
+     */
+    @WebMethod
+    @WebResult(name = "measure", targetNamespace = "http://webservice.soap.assignment.introsde/")
+    @RequestWrapper(localName = "readMeasure", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.ReadMeasure")
+    @ResponseWrapper(localName = "readMeasureResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.ReadMeasureResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/readMeasureRequest", output = "http://webservice.soap.assignment.introsde/People/readMeasureResponse")
+    public Measure readMeasure(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId,
+        @WebParam(name = "measureTypeId", targetNamespace = "")
+        String measureTypeId,
+        @WebParam(name = "measureId", targetNamespace = "")
+        int measureId);
+
+    /**
+     * 
+     * @param personId
+     * @param measureTypeId
+     * @return
+     *     returns java.util.List<introsde.assignment.soap.webservice.Measure>
+     */
+    @WebMethod
+    @WebResult(name = "measureList", targetNamespace = "")
+    @RequestWrapper(localName = "getMeasureHistory", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.GetMeasureHistory")
+    @ResponseWrapper(localName = "getMeasureHistoryResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.GetMeasureHistoryResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/getMeasureHistoryRequest", output = "http://webservice.soap.assignment.introsde/People/getMeasureHistoryResponse")
+    public List<Measure> getMeasureHistory(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId,
+        @WebParam(name = "measureTypeId", targetNamespace = "")
+        String measureTypeId);
+
+    /**
+     * 
+     * @param measure
+     * @param personId
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(name = "measure", targetNamespace = "")
+    @RequestWrapper(localName = "createMeasure", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.CreateMeasure")
+    @ResponseWrapper(localName = "createMeasureResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.CreateMeasureResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/createMeasureRequest", output = "http://webservice.soap.assignment.introsde/People/createMeasureResponse")
+    public int createMeasure(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId,
+        @WebParam(name = "measure", targetNamespace = "http://webservice.soap.assignment.introsde/")
+        Measure measure);
+
+    /**
+     * 
+     * @param measure
+     * @param personId
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(name = "measure", targetNamespace = "")
+    @RequestWrapper(localName = "updateMeasure", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.UpdateMeasure")
+    @ResponseWrapper(localName = "updateMeasureResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.UpdateMeasureResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/updateMeasureRequest", output = "http://webservice.soap.assignment.introsde/People/updateMeasureResponse")
+    public int updateMeasure(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId,
+        @WebParam(name = "measure", targetNamespace = "http://webservice.soap.assignment.introsde/")
+        Measure measure);
+
+    /**
+     * 
+     * @param measureId
+     */
+    @WebMethod
+    @RequestWrapper(localName = "deleteMeasure", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.DeleteMeasure")
+    @ResponseWrapper(localName = "deleteMeasureResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.DeleteMeasureResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/deleteMeasureRequest", output = "http://webservice.soap.assignment.introsde/People/deleteMeasureResponse")
+    public void deleteMeasure(
+        @WebParam(name = "measureId", targetNamespace = "", mode = WebParam.Mode.INOUT)
+        Holder<Integer> measureId);
+
+    /**
+     * 
+     * @param measureId
+     * @return
+     *     returns introsde.assignment.soap.webservice.MeasureType
+     */
+    @WebMethod
+    @WebResult(name = "measureType", targetNamespace = "http://webservice.soap.assignment.introsde/")
+    @RequestWrapper(localName = "readMeasureType", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.ReadMeasureType")
+    @ResponseWrapper(localName = "readMeasureTypeResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.ReadMeasureTypeResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/readMeasureTypeRequest", output = "http://webservice.soap.assignment.introsde/People/readMeasureTypeResponse")
+    public MeasureType readMeasureType(
+        @WebParam(name = "measureId", targetNamespace = "")
+        int measureId);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<introsde.assignment.soap.webservice.MeasureType>
+     */
+    @WebMethod
+    @WebResult(name = "measureTypeList", targetNamespace = "")
+    @RequestWrapper(localName = "getMeasureTypeList", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.GetMeasureTypeList")
+    @ResponseWrapper(localName = "getMeasureTypeListResponse", targetNamespace = "http://webservice.soap.assignment.introsde/", className = "introsde.assignment.soap.webservice.GetMeasureTypeListResponse")
+    @Action(input = "http://webservice.soap.assignment.introsde/People/getMeasureTypeListRequest", output = "http://webservice.soap.assignment.introsde/People/getMeasureTypeListResponse")
+    public List<MeasureType> getMeasureTypeList();
 
 }
