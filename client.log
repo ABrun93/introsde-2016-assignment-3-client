@@ -1,0 +1,81 @@
+Introsde-2016-Assignment-3-Client
+Url server: https://introsde-2016-assignment-3.herokuapp.com/ws/people?wsdl
+
+=================================================
+
+1: List of perosn
+readPersonList()
+	--> Giorgio Fiorese 1993-06-15
+	--> Francesca Brun 2000-04-03
+	--> Anna Maria Bordignon 1965-03-23
+
+=================================================
+
+2: Person by id
+readPerson(int id) -> readPerson(1)
+	--> Giorgio Fiorese 1993-06-15
+
+=================================================
+
+3: Update person
+updatePerson(Person p) -> updatePerson(Person with id 1)
+	--> Before: Giorgio Fiorese 1993-06-15
+	--> After: Nuovo Fiorese 1993-06-15
+
+=================================================
+
+4: Create person
+createPerson(Person p) -> createPerson(new Person)
+	--> Chuck Norris 1945-01-01
+
+=================================================
+
+5: Delete person 7
+deletePerson(int id) -> deletePerson(7)
+	--> Before:
+		--> Nuovo Fiorese 1993-06-15
+		--> Francesca Brun 2000-04-03
+		--> Anna Maria Bordignon 1965-03-23
+		--> Chuck Norris 1945-01-01
+	--> After:
+		--> Nuovo Fiorese 1993-06-15
+		--> Francesca Brun 2000-04-03
+		--> Anna Maria Bordignon 1965-03-23
+
+=================================================
+
+6: History
+readPersonHistory(Long id, String measureType) -> readPersonHistory(1, "height")
+	--> 1 1.7
+	--> 4 1.78
+
+=================================================
+
+7: List of MeasureType
+readMeasureTypes()
+	--> 1 height
+	--> 2 weight
+	--> 3 steps
+	--> 4 bloodpressure
+
+=================================================
+
+8: Read measure
+readPersonMeasure(Long id, String measureType, Long mid) -> readPersonMeasure(1, "height", 1)
+	--> 1 1.7
+
+=================================================
+
+9: Create measure
+savePersonMeasure(Long id, Measure m) -> savePersonMeasure(1, new Measure)
+	--> 17 1.72
+
+=================================================
+
+10: Update measure
+updatePersonMeasure(Long id, Measure m) -> updatePersonMeasure(1, Measure mod) 
+	--> Before: 17 1.72
+	--> After: 17 1.81
+
+=================================================
+
