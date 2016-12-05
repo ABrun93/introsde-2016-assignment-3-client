@@ -1,6 +1,5 @@
 package introsde.assignment.soap.client;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.ws.Holder;
@@ -82,8 +81,8 @@ public class PeopleClient
         p.setFirstname("Nuovo"); 
         int i = people.updatePerson(p);
         
-        p = people.readPerson(i);        
-        System.out.println("\t--> After: " + p.getFirstname() + " " + p.getLastname() + " " + p.getBirthdate());
+        Person p1 = people.readPerson(i);        
+        System.out.println("\t--> After: " + p1.getFirstname() + " " + p1.getLastname() + " " + p1.getBirthdate());
         
         System.out.println("=================================================");		
 	}
@@ -97,8 +96,8 @@ public class PeopleClient
         
         HealthProfile h = new HealthProfile();
         List<Measure> m = h.getMeasure();
-        m.add(makeMeasure(7, (float) 1.72, "1978-09-02", p, makeMeasureType(1, people)));
-        m.add(makeMeasure(8, 75, "1978-09-02", p, makeMeasureType(2, people)));               
+        m.add(makeMeasure(7, (float) 1.72, "1978-09-02", makeMeasureType(1, people)));
+        m.add(makeMeasure(8, 75, "1978-09-02", makeMeasureType(2, people)));               
         p.setHealthProfile(h);
         
         int i = people.createPerson(p);
@@ -130,7 +129,7 @@ public class PeopleClient
         	System.out.println("\t\t--> " + p1.getFirstname() + " " + p1.getLastname() + " " + p1.getBirthdate());
         }
         
-        people.deletePerson(new Holder<Integer>(7));
+        people.deletePerson(7);
         
         pList = people.getPeopleList();
         System.out.println("\t--> After:");
@@ -192,7 +191,8 @@ public class PeopleClient
         System.out.println("9: Create measure");
         
         Person p = people.readPerson(1);
-        int i = people.createMeasure(1, makeMeasure(17, (float) 1.72, "2011-12-09", p, makeMeasureType(1, people)));
+        Measure tmp = makeMeasure(17, (float) 1.72, "2011-12-09", makeMeasureType(1, people));
+        int i = people.createMeasure(1, tmp);
         
         Measure m = people.readMeasure(1, makeMeasureType(1, people).getType(), i);
         System.out.println("\t--> " + m.getIdMeasure() + " " + m.getValue());
@@ -225,7 +225,7 @@ public class PeopleClient
         p.setFirstname("Giorgio"); 
         people.updatePerson(p);
         
-        people.deleteMeasure(new Holder<Integer>(17));
+        people.deleteMeasure(17);
 		
 	}
 
@@ -241,7 +241,7 @@ public class PeopleClient
     	return p;
     }
     
-    public static Measure makeMeasure(int id, float value, String date, Person person, MeasureType mType)
+    public static Measure makeMeasure(int id, float value, String date, MeasureType mType)
     {
     	Measure m = new Measure();
     	
